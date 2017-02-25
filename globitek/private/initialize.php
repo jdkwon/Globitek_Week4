@@ -8,6 +8,11 @@ ob_start();
 // TODO add configurations
 session_start();
 
+// use both unset and destroy for compatibility
+// with all browsers and all versions of PHP
+session_unset();
+session_destroy();
+
 // Turns off any browser built-in XSS protections
 // LEAVE THIS LINE IN WHILE YOU ARE LEARNING
 // We want to get punished for any XSS mistakes...
