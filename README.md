@@ -13,19 +13,19 @@ The following **required** functionality is completed:
   * [X]  Required: Expire after one day
   * [X]  Required: Use cookies which are marked as HttpOnly
 
-3\. [ ]  Required: Complete Login page.
-  * [ ]  Required: Show an error message when username is not found.
-  * [ ]  Required: Show an error message when username is found but password does not match.
-  * [ ]  Required: After login, store user ID in session data.
-  * [ ]  Required: After login, store user last login time in session data.
-  * [ ]  Required: Regenerate the session ID at the appropriate point.
+3\. [X]  Required: Complete Login page.
+  * [X]  Required: Show an error message when username is not found.
+  * [X]  Required: Show an error message when username is found but password does not match.
+  * [X]  Required: After login, store user ID in session data.
+  * [X]  Required: After login, store user last login time in session data.
+  * [X]  Required: Regenerate the session ID at the appropriate point.
 
-4\. [ ]  Required: Require login to access staff area pages.
-  * [ ]  Required: Add a login requirement to *almost all* staff area pages.
-  * [ ]  Required: Write code for `last_login_is_recent()`.
+4\. [X]  Required: Require login to access staff area pages.
+  * [X]  Required: Add a login requirement to *almost all* staff area pages.
+  * [X]  Required: Write code for `last_login_is_recent()`.
 
-5\. [ ]  Required: Complete Logout page.
-  * [ ]  Required: Add code to destroy the user's session file after logging out.
+5\. [X]  Required: Complete Logout page.
+  * [X]  Required: Add code to destroy the user's session file after logging out.
 
 6\. [ ]  Required: Add CSRF protections to the state forms.
   * [ ]  Required: Create a CSRF token.

@@ -6,17 +6,20 @@ ob_start();
 
 // Enable sessions
 // TODO add configurations
-session_start();
+session_start([
+    'use_only_cookies' => 1,
+    'cookie_lifetime' => 86400,
+    'cookie_secure' => 1,
+    'cookie_httponly' => 1
+]);
 
-// use both unset and destroy for compatibility
-// with all browsers and all versions of PHP
-session_unset();
-session_destroy();
+// Set cookies
+setcookie('language', 'english');
 
 // Turns off any browser built-in XSS protections
 // LEAVE THIS LINE IN WHILE YOU ARE LEARNING
 // We want to get punished for any XSS mistakes...
-header('X-XSS-Protection: 0');
+// header('X-XSS-Protection: 0');
 
 // Assign path shortcuts to PHP constants
 // __FILE__ returns the current path to this file
