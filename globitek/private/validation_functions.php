@@ -31,6 +31,11 @@
     return preg_match('/\A[A-Za-z0-9_]+\Z/', $value);
   }
 
+  function valid_username($value) {
+    $symbols = array('_');
+    return ctype_alnum(str_replace($symbols, '', $value));
+  }
+
   // has_valid_phone_format('(212) 555-6666')
   function has_valid_phone_format($value) {
     return preg_match('/\A[0-9\-\(\)]+\Z/', $value);

@@ -482,6 +482,9 @@
   // find_users_by_username('rockclimber67');
   function find_users_by_username($username='') {
     global $db;
+    if(!valid_username($username)) {
+      $username = '';
+    }
     $sql = "SELECT * FROM users ";
     $sql .= "WHERE username = '" . h($username) . "';";
     $users_result = db_query($db, $sql);

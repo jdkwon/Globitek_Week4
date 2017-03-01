@@ -5,6 +5,9 @@ require_login();
 if(!isset($_GET['id'])) {
   redirect_to('../index.php');
 }
+if(!request_is_same_domain()) {
+  redirect_to('../index.php');
+}
 
 // Set default values for all variables the page needs.
 $errors = array();

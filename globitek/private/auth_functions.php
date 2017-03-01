@@ -3,8 +3,10 @@
   // Will perform all actions necessary to log in the user
   // Also protects user from session fixation.
   function log_in_user($user) {
-    $_SESSION['user_id'] = $user;
+    session_regenerate_id();
+    $_SESSION['user_id'] = $user['id'];
     $_SESSION['last_login'] = time();
+    $_SESSION['user_agent'] = $_SERVER['HTTP_USER_AGENT'];
     return true;
   }
 
@@ -12,6 +14,8 @@
   function destroy_current_session() {
     // use both unset and destroy for compatibility
     // with all browsers and all versions of PHP
+    unset($_SESSION['last_login']);
+    unset($_SESSION['user_agent']);
     session_unset();
     session_destroy();
   }
@@ -29,12 +33,6 @@
     $recent_limit = 60 * 60 * 24 * 1; // 1 day
     if(!isset($_SESSION['last_login'])) { return false; }
     return (($_SESSION['last_login'] + $recent_limit) >= time());
-  }
-
-  function after_successful_login() {
-    session_regenerate_id();
-    $_SESSION['logged_in'] = true;
-    $_SESSION['last_login'] = time();
   }
 
   // Checks to see if the user-agent string of the current request
