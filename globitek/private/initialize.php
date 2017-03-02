@@ -9,12 +9,12 @@ ob_start();
 session_start([
     'use_only_cookies' => 1,
     'cookie_lifetime' => 86400,
-    'cookie_secure' => 1,
+    // 'cookie_secure' => 1,
     'cookie_httponly' => 1
 ]);
 
 // Set cookies
-setcookie('language', 'english');
+// setcookie('language', 'english');
 
 // Turns off any browser built-in XSS protections
 // LEAVE THIS LINE IN WHILE YOU ARE LEARNING

@@ -1,12 +1,14 @@
 <?php
-
+  
   // Will perform all actions necessary to log in the user
   // Also protects user from session fixation.
   function log_in_user($user) {
     session_regenerate_id();
     $_SESSION['user_id'] = $user['id'];
     $_SESSION['last_login'] = time();
-    $_SESSION['user_agent'] = $_SERVER['HTTP_USER_AGENT'];
+    // $_SESSION['user_agent'] = $_SERVER['HTTP_USER_AGENT'];
+    // session_write_close();
+    
     return true;
   }
 
@@ -14,8 +16,8 @@
   function destroy_current_session() {
     // use both unset and destroy for compatibility
     // with all browsers and all versions of PHP
-    unset($_SESSION['last_login']);
-    unset($_SESSION['user_agent']);
+    // unset($_SESSION['last_login']);
+    // unset($_SESSION['user_agent']);
     session_unset();
     session_destroy();
   }
@@ -40,7 +42,7 @@
   function user_agent_matches_session() {
     if(!isset($_SESSION['user_agent'])) { return false; }
     if(!isset($_SERVER['HTTP_USER_AGENT'])) { return false; }
-    return ($_SESSION['user_agent'] === $_SERVER['HTTP_USER_AGENT']);
+    // return ($_SESSION['user_agent'] === $_SERVER['HTTP_USER_AGENT']);
   }
 
   // Inspects the session to see if it should be considered valid.
@@ -59,7 +61,9 @@
     // Having a user_id in the session serves a dual-purpose:
     // - Its presence indicates the user is logged in.
     // - Its value tells which user for looking up their record.
-    if(!isset($_SESSION['user_id'])) { return false; }
+    // exit("test");
+    // if(!isset($_SESSION['user_id'])) { return false; }
+    // exit("test");
     if(!session_is_valid()) { return false; }
     return true;
   }
