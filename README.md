@@ -1,6 +1,6 @@
 # Project 4 - Forgery, Theft, and Hijacking Prevention
 
-Time spent: **10** hours spent in total
+Time spent: **20** hours spent in total
 
 ## User Stories
 
@@ -75,7 +75,7 @@ GIF created with [LiceCap](http://www.cockos.com/licecap/).
 
 ## Notes
 
-Describe any challenges encountered while building the app.
+Took forever to figure out why I couldn't login. Unfortunately, that's why I am submitting this assignment late.
 
 ## License
 
